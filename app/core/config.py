@@ -3,7 +3,7 @@ from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     app_title: str = "Веб-сервис получения вопросов викторины"
-    description: str = ""
+    description: str = "Асинхронный веб-сервис"
     postgres_db: str = "fastapi"
     postgres_user: str = "postgres"
     postgres_password: str = "postgres"
