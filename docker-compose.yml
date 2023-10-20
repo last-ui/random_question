@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.3'
 services:
   db:
     image: postgres:14
@@ -9,22 +9,21 @@ services:
       - "5432:5432"
     env_file:
       - .env
-#  api:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
-#    ports:
-#      - "8000:8000"
-#    volumes:
-#      - .:/app
-#      - /app/.venv
-#    command: bash -c "poetry run alembic upgrade head &&
-#             poetry run uvicorn app.main:app --reload --host 0.0.0.0 --port 8000"
-#
-#    env_file:
-#      - .env
-#    depends_on:
-#      - db
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - /app/.venv
+    command: bash -c "poetry run alembic upgrade head &&
+             poetry run uvicorn app.main:app --reload --host 0.0.0.0 --port 8000"
+    env_file:
+      - .env
+    depends_on:
+      - db
 
 volumes:
   db_value:

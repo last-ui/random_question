@@ -2,12 +2,12 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    app_title: str = "Заголовок"
-    description: str = "Описание"
+    app_title: str = "Веб-сервис получения вопросов викторины"
+    description: str = ""
     postgres_db: str = "fastapi"
     postgres_user: str = "postgres"
     postgres_password: str = "postgres"
-    db_host: str = "localhost"
+    db_host: str = "db"
     db_port: str = "5432"
     database_url: str = (
         "postgresql+asyncpg://"
